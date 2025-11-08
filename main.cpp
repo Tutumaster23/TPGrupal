@@ -9,27 +9,29 @@ int main()
     srand(time(NULL)); ///PARA QUE RAND GENERE NUMEROS ALEATORIOS TODAS LAS PARTIDAS
 
     int opcion;
-    int puntajeTotal = 0;
-    string nombre = "";
 
     ///MOSTRAR MENU
     do{
         mostrarMenu();
         cout << "SELECCIONE UNA OPCION: " << endl;
         cin >> opcion;
-
+        system ("cls");
         switch(opcion){
-    case 1:
+    case 1: {
         //NUEVA PARTIDA(1 JUGADOR)
         system ("cls");
+        // se declara el puntaje total y nombre en 0 para resetear la ronda
+        int puntajeTotal = 0;
+        string nombre = "";
         jugarUnJugador(puntajeTotal, nombre);
         break;
+    }
     case 2:
         //NUEVA PARTIDA(2 JUGADORES)
         break;
     case 3:
         //VER PUNTUACION MAS ALTA
-        puntajemasAlto(puntajeTotal, nombre);
+        mostrarPuntaje();
         break;
     case 4:
         //VER CREDITOS

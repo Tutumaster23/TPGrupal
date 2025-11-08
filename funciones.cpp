@@ -3,6 +3,10 @@
 #include <cstdlib>
 using namespace std;
 
+/// Puntaje maximo y nombre en 0
+string maxJugador = "";
+int maxPuntaje = 0;
+
 ///funcion que muestra el menu
 void mostrarMenu(){
     cout << "----------------------------------------------------------" <<endl;
@@ -30,7 +34,7 @@ void jugarUnJugador(int &puntajeTotal,string &nombre){
     int dados[cantDados];
 
     //bucle rondas
-    for(int ronda = 1; ronda <=10; ronda++){
+    for(int ronda = 1; ronda <=1; ronda++){
 
         //mostramos info
         cout << "----------------------------------------------------------" <<endl;
@@ -101,6 +105,8 @@ void jugarUnJugador(int &puntajeTotal,string &nombre){
     cout << "----------------------------------------------------------" <<endl;
     cout << "FIN DEL JUEGO"<< endl;
     cout << "Puntaje final de "<< nombre << ": " << puntajeTotal << " PTS" << endl;
+    cargarPuntaje(nombre, puntajeTotal);
+
     limpiarPantalla();
 }
 
@@ -167,13 +173,27 @@ void combinaciones(int conteo[], int &puntajeRonda){
     }
 }
 
-void puntajemasAlto(int puntajeTotal, string nombre){
-    cout << "************************* Puntuacion mas alta ************************" << endl;
-    cout << puntajeTotal << " " << nombre;
+/// funcion para determinar cual es el puntaje mas alto de todas las partidas jugadas al momento
+void cargarPuntaje(string nombre, int puntajeTotal){
+    if (puntajeTotal > maxPuntaje){
+        maxPuntaje = puntajeTotal;
+        maxJugador = nombre;
+    }
 
 }
 
-
+/// funcion que muestra los puntajes y si no hay informa
+void mostrarPuntaje() {
+    cout << "************************* Puntaje ************************" << endl;
+    cout << "----------------------------------------------------------" <<endl;
+    cout << endl;
+    if (maxPuntaje == 0){
+        cout << "No hay puntajes actualmente." << endl;
+    } else
+    cout << "Mejor jugador: " << maxJugador << " con " << maxPuntaje << " Puntos."<<endl;
+    cout << endl;
+    limpiarPantalla();
+}
 
 ///funcion que muestra los creditos, nombre apellido y legajo
 void mostrarCreditos(){

@@ -11,6 +11,7 @@ void tirarDados(int dados[], int cantidad);
 void mostrarDados(int dados[], int cantidad, int numLanzamiento);
 void contarDados(int dados[], int conteo[]);
 void combinaciones(int conteo[], int &puntajeRonda);
-void puntajemasAlto(int puntajeTotal, string nombre);
+void cargarPuntaje (string nombre, int puntajeTotal);
+void mostrarPuntaje();
 
 #endif // FUNCIONES_H
